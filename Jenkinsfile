@@ -1,47 +1,35 @@
-pipeline {
+pipeline{
     agent any
-    stages {
-        stage('1-Build') {
-            steps {
+    stages{
+        stage('1-Build'){
+            steps{
                 sh 'systemctl status jenkins'
             }
         }
-        stage('3-Deploy') {
-                    steps {
-                        sh 'lscpu'
-                        sh 'free -m'
-                    }
-                }
+        stage('2-Test'){
+            steps{
+                echo "we are on parallel test"
             }
-            stage('parallel') {
-                parallel{
-                    stage('4-uniest') {
-                        steps{
-                            sh 'lscpu'
-                        }
-                    }
-                    stage('5-release for deployment') {
-                        steps {
-                            sh 'free -m'
-                        }
-                    }
-                }
-                
-                stage('6-production') {
-                    steps {
-                        sh '%date %time%'
-                    }
-                }
-                
-            }
-            stage ("Securitytest") {
-                steps {
-                    sh 'pwd'
-                }
-           
-               
-            }
-        
         }
-    
-	
+        stage('parallel'){
+            parallel{
+                stage('3-unitest'){
+                    steps{
+                        sh 'df -h'
+                        sh 'cat /etc/passwd'
+                    }
+                }
+                stage('4-Deploy'){
+                    steps{
+                        sh '%date% %time%'
+                    }
+                }
+            }
+        }
+
+    }stage('5-release'){
+        steps{
+            sh 'pwd'
+        }
+    }
+}
