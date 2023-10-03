@@ -29,7 +29,6 @@ pipeline{
                         sh 'pwd'
                     }
                 }
-                 stage('parallel'){
                     parallel{
                         stage('6-Release to production'){
                             steps{
@@ -48,5 +47,5 @@ pipeline{
         }
 
     }
-}
+
     
