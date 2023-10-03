@@ -23,9 +23,9 @@ pipeline{
 				sh'ls -l'
 			}
 		}
-		stage('Regression test'){
+		stage('parallel'){
 			parallel {
-				stage ('rebtest'){
+				stage ('unitest'){
 					steps{
 						sh 'lscpu'
 					}
