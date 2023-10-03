@@ -21,7 +21,7 @@ pipeline{
                 }
                 stage('4-Deploy'){
                     steps{
-                        sh '%date% %time%'
+                        sh 'df -h'
                     }
                 }
                 stage('5-Securitytest'){
