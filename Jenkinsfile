@@ -26,7 +26,7 @@ pipeline {
                         steps {
                             sh 'lscpu'
                         }
-                    },
+                    }
                     stage('5-release for deployment') {
                         steps {
                             sh 'free -m'
