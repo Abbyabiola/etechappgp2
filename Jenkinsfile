@@ -46,9 +46,14 @@ pipeline{
                         }
                         stage('8-Notify'){
                             steps{
-                                echo "we are on parallel notify"
+                                sh '%date% %time%'
                             }
                         }
+                    }
+                 }
+                 stage('9-Release'){
+                    steps{
+                        sh 'lscpu'
                     }
                  }
             }
