@@ -7,9 +7,9 @@ pipeline{
 			}
 		}
 		stage('Test'){
-			parallel{
-				stage('unitest'){
-					steps{
+			parallel {
+				stage ('unitest'){
+					steps {
 						sh 'df -h'
 						sh 'cat /etc/passwd'
 					}
@@ -23,9 +23,9 @@ pipeline{
 				sh'ls -l'
 			}
 		}
-		stage('Release'){
-			parallel{
-				stage('Release to staging'){
+		stage('Regression test'){
+			parallel {
+				stage ('rebtest'){
 					steps{
 						sh 'lscpu'
 					}
