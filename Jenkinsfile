@@ -6,15 +6,7 @@ pipeline {
                 sh 'systemctl status jenkins'
             }
         }
-        stage ("Test") {
-        parallel {
-            stage('parallel ') {
-                stage('2-Test') {
-                    steps {
-                        sh 'cat /etc/passwd'
-                    }
-                }
-                stage('3-Deploy') {
+        stage('3-Deploy') {
                     steps {
                         sh 'lscpu'
                         sh 'free -m'
@@ -51,7 +43,5 @@ pipeline {
             }
         
         }
-    }
-}
-}
+    
 	
