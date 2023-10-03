@@ -1,12 +1,12 @@
 pipeline{
 	agent any
 	stages{
-		stage('Build'){
+		stage('1-Build'){
 			steps{
 				sh 'systemctl status jenkins'
 			}
 		}
-		stage('Test'){
+		stage('2-Test'){
 			parallel {
 				stage ('unitest'){
 					steps {
@@ -18,24 +18,24 @@ pipeline{
 				
 			}
 		}
-		stage('Deploy'){
+		stage('3-Deploy'){
 			steps{
 				sh'ls -l'
 			}
 		}	
-		stage('Release to production'){
+		stage('4-Release to staging'){
 					steps{
 						sh 'free -m'
 				}
 				
 			}
 			
-			stage('Notify'){
+			stage('5-Notify'){
 				steps{
 					sh '%date% %time%'
 				}
 			}
-            stage('parallel'){
+            stage('6-parallel') {
                 parallel {
                     stage ('unitest'){
                         steps{
@@ -44,11 +44,17 @@ pipeline{
                         }
                     }
                 }
-			stage('Securitytest'){
+			stage('7-Securitytest'){
 				steps{
 					sh 'pwd'
 				}
             }
+            stage('8-Release to production'){
+                steps{
+                      echo "end of pipeline" 
+            }
+                
+           }
     	}
     }
 }
