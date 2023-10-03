@@ -29,16 +29,24 @@ pipeline{
                         sh 'pwd'
                     }
                 }
+                 stage('parallel'){
                     parallel{
-                        stage('6-Release to production'){
+                        stage('6-production'){
                             steps{
                                 sh 'free -m'
                             }
 
                         }
+                    }
+                 }
                         stage('7-artifact'){
                             steps{
                                 echo "we are on parallel artifact"
+                            }
+                        }
+                        stage('8-Notify'){
+                            steps{
+                                echo "we are on parallel notify"
                             }
                         }
                     }
@@ -46,6 +54,6 @@ pipeline{
             }
         }
 
-    }
+    
 
     
