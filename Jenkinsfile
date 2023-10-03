@@ -46,12 +46,12 @@ pipeline{
                         }
                         stage('8-Notify'){
                             steps{
-                                sh '%date% %time%'
+                                sh 'whoami'
                             }
                         }
                     }
                  }
-                 stage('9-Release'){
+                 stage('9-Release to staging'){
                     steps{
                         sh 'lscpu'
                     }
