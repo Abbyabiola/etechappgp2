@@ -1,4 +1,4 @@
-pipeline {
+pipeline{
     agent any
     stages{
         stage('1-Build'){
@@ -24,12 +24,14 @@ pipeline {
                         sh '%date% %time%'
                     }
                 }
+                stage('5-Securitytest'){
+                    steps{
+                        sh 'pwd'
+                    }
+                }
             }
         }
 
-    }stage('5-release'){
-        steps{
-            sh 'pwd'
-        }
     }
 }
+    
