@@ -35,7 +35,6 @@ pipeline{
 					sh '%date% %time%'
 				}
 			}
-            stage ('Release to staging'){
                 parallel{
                     stage ('unitest'){
                         steps{
@@ -49,7 +48,7 @@ pipeline{
 					sh 'pwd'
 				}
 			}
-        }
+        
 	}
 }
 
