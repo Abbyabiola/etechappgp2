@@ -29,7 +29,7 @@ pipeline{
                         sh 'pwd'
                     }
                 }
-                 stage('parallel'){
+                 stage('Production'){
                     parallel{
                         stage('6-production'){
                             steps{
