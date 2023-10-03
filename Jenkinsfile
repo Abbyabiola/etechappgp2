@@ -29,6 +29,8 @@ pipeline{
                         sh 'pwd'
                     }
                 }
+            }
+        }
                  stage('Production'){
                     parallel{
                         stage('6-production'){
@@ -37,9 +39,7 @@ pipeline{
                             }
 
                         }
-                    }
-                 }
-                        stage('7-artifact'){
+                    stage('7-artifact'){
                             steps{
                                 echo "we are on parallel artifact"
                             }
