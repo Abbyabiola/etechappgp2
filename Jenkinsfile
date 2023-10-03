@@ -13,10 +13,10 @@ pipeline {
                     }
                 }
             }
-            stage('unitest') {
+            stage('parallel') {
                 parallel{
-                    stage('4-release for testing') {
-                        steps {
+                    stage('4-uniest') {
+                        steps{
                             sh 'lscpu'
                         }
                     }
