@@ -35,7 +35,8 @@ pipeline{
 					sh '%date% %time%'
 				}
 			}
-                parallel{
+            stage('parallel'){
+                parallel {
                     stage ('unitest'){
                         steps{
                             sh 'df -h'
@@ -47,9 +48,9 @@ pipeline{
 				steps{
 					sh 'pwd'
 				}
-			}
-        
-	}
+            }
+    	}
+    }
 }
 
 
